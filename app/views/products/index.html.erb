@@ -4,10 +4,12 @@
 
 <div id="products">
   <% @products.each do |product| %>
-    <%= render product %>
-    <p>
-      <%= link_to "Show this product", product %>
-    </p>
+    <div style="padding:1m 0 1em 0;border:solid 1px">
+      <%= render product %>
+      <p>
+        <%= link_to "Show this product", product %>
+      </p>
+    </div>
   <% end %>
 </div>
 
