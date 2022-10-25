@@ -11,6 +11,14 @@
   </head>
 
   <body>
+
+    <nav>
+      <li><%= link_to "Home", products_path %></li> 
+      <li><%= link_to "Products", products_path %></li>
+      <li><%= link_to "Brands", brands_path %></li>     
+    </nav> 
+    
     <%= yield %>
+
   </body>
 </html>
