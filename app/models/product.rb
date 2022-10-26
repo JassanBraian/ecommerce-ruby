@@ -10,5 +10,9 @@
 #  brand_id   :integer          not null
 #
 class Product < ApplicationRecord
+    
     belongs_to :brand
+
+    has_many :sales
+
 end
