@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_26_203049) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_30_001725) do
   create_table "brands", force: :cascade do |t|
     t.string "title", null: false
     t.datetime "created_at", null: false
@@ -30,6 +30,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_26_203049) do
     t.integer "product_id", null: false
     t.integer "sale_id", null: false
   end
+  # VER SI HAY QUE ELIMINAR ESTA TABLA... PROBAR
+
+  create_table "sale_products", force: :cascade do |t|
+    t.integer "sale_id", null: false
+    t.integer "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_sale_products_on_product_id"
+    t.index ["sale_id"], name: "index_sale_products_on_sale_id"
+  end
 
   create_table "sales", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -39,4 +49,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_26_203049) do
   end
 
   add_foreign_key "products", "brands"
+  add_foreign_key "sale_products", "products"
+  add_foreign_key "sale_products", "sales"
 end

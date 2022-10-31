@@ -1,6 +1,8 @@
 class SalesController < ApplicationController
   before_action :set_sale, only: %i[ show edit update destroy ]
 
+  before_action :set_product, only: %i[ add_product_to_cart ]
+
   # GET /sales or /sales.json
   def index
     @sales = Sale.all
@@ -57,6 +59,16 @@ class SalesController < ApplicationController
     end
   end
 
+  def add_product_to_cart
+    #añadir el producto pasado por parametro al carrito indicado (ver si this)
+    
+
+    respond_to do |format|
+      format.html { redirect_to sales_url, notice: "Product was successfully added to cart." }
+      format.json { head :no_content }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_sale
@@ -65,6 +77,11 @@ class SalesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def sale_params
-      params.require(:sale).permit(:total)
+      params.require(:sale).permit(:total, :product)
+    end
+
+    def set_product
+      @product = Product.find(params[:product])
+      #VER SI ESTE METODO CUMPLE CON SU FUNCION CORRECTAMENTE
     end
 end

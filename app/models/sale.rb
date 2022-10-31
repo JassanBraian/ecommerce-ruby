@@ -10,6 +10,7 @@
 #
 class Sale < ApplicationRecord
 
-    has_many :products
+    has_many :products #ver si queda o no...
+    has_many :sale_products
 
 end
