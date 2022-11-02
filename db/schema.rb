@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_30_001725) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_31_183832) do
   create_table "brands", force: :cascade do |t|
     t.string "title", null: false
     t.datetime "created_at", null: false
@@ -25,12 +25,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_30_001725) do
     t.integer "brand_id", null: false
     t.index ["brand_id"], name: "index_products_on_brand_id"
   end
-
-  create_table "products_sales", id: false, force: :cascade do |t|
-    t.integer "product_id", null: false
-    t.integer "sale_id", null: false
-  end
-  # VER SI HAY QUE ELIMINAR ESTA TABLA... PROBAR
 
   create_table "sale_products", force: :cascade do |t|
     t.integer "sale_id", null: false

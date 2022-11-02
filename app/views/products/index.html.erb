@@ -3,22 +3,21 @@
 <h1>Products</h1>
 
 <div id="products">
-  <% @products.each do |product| %>
-    <div style="padding:1m 0 1em 0;border:solid 1px">
-      <%= render product %>
-      <p>
-        <%= link_to "Show this product", product %>
-      </p>
-      <p>
-        <%= link_to "Add to cart" %>
-        <%
-=begin%>
- <%= link_to "Add to cart", sale SE DEBE LINKEAR CORRECTAMENTE%> 
-<%
-=end%>
-      </p>
-    </div>
-  <% end %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Stock</th>
+        <th scope="col">Brand</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+          <%= render "product_table", product: product %>
+      <% end %>
+  </tbody>
+</table>
 </div>
 
 <%= link_to "New product", new_product_path %>
