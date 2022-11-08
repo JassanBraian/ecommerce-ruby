@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'sale_products/add_product_to_cart'
   resources :sales
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -9,5 +10,6 @@ Rails.application.routes.draw do
 
   resources :products
   resources :brands
+  resources :sale_product
   
 end
