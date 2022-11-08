@@ -59,22 +59,6 @@ class SalesController < ApplicationController
     end
   end
 
-  def add_product_to_cart
-    #añadir el producto pasado por parametro al carrito indicado (ver si this)
-    # @saleproduct = SaleProduct.new(sale_params)
-    @saleproduct = SaleProduct.new(@sale, @product)
-
-    respond_to do |format|
-      if @saleproduct.save
-        format.html { redirect_to product_url(@saleproduct), notice: "Product was successfully added to cart." }
-        format.json { render :product, status: :ok, location: @product }
-      else
-        format.html { render :product, status: :unprocessable_entity }
-        format.json { render json: @saleproduct.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_sale
