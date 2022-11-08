@@ -67,20 +67,19 @@ class SalesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def sale_params
-      params.require(:sale).permit(:total, :product)  #analizar si hace falta total pq puede ser campo calculado /aplicar update total resumen
+      @product = Product.find(params[:product])
+      params.require(:sale, :product).permit(:total, :product_id)  #analizar si hace falta total pq puede ser campo calculado /aplicar update total resumen
     end
 
     def sale_product_params
-      params.require(:sale_product).permit(:sale, :product)
+      puts 'b1', params[:product_id]
+      @prod3 = Product.find(params[:product_id])
+
+      #params.require(:sale_product).permit(:sale, :product)
     end
 
     def set_sale_product
-      @sale = Sale.find(params[:sale])
-      @product = Product.find(params[:product])
-      #VER SI ESTE METODO CUMPLE CON SU FUNCION CORRECTAMENTE
-      puts "a1"
-      puts @sale
-      puts @product
+      @product = Product.find(params[:id])
     end
 
     # encarar con generate controller y de ahi utilizar el create... o no se, quizas ver bien como llamar al metodo que está en sale por alguna razon no lo encuentra!!
