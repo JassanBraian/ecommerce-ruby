@@ -77,12 +77,8 @@ class SalesController < ApplicationController
     params.require(:sale, :product).permit(:total, :product_id)  #analizar si hace falta total pq puede ser campo calculado /aplicar update total resumen
   end
 
-  def sale_product_params
-    puts "b1", params[:product_id]
-    @prod3 = Product.find(params[:product_id])
-  end
-
   def set_sale_product
     @product = Product.find(params[:product_id])
   end
+  
 end

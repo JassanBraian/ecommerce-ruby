@@ -15,12 +15,10 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
-    
   end
 
   # GET /products/1/edit
   def edit
-
   end
 
   # POST /products or /products.json
@@ -62,17 +60,18 @@ class ProductsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_product
-      @product = Product.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def product_params
-      params.require(:product).permit(:title, :stock, :brand_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
-    def get_brands
-      @brands = Brand.all
-    end
+  # Only allow a list of trusted parameters through.
+  def product_params
+    params.require(:product).permit(:title, :stock, :brand_id)
+  end
+
+  def get_brands
+    @brands = Brand.all
+  end
 end
