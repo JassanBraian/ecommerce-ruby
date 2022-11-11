@@ -60,35 +60,29 @@ class SalesController < ApplicationController
   end
 
   def add_product_to_sale
-
-    #@product2 = Product.find(2)   #carga manual forzada, queda pendiente poder cargarlo por parametro
-    #SaleProduct.find_or_create_by(sale: self, product: @product2)
-    @sale3 = Sale.first
+    @sale3 = Sale.first     #Pendiente que este sale venga manual del usuario y sea creado si no existe uno payed false
     SaleProduct.find_or_create_by(sale: @sale3, product: @product)
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_sale
-      @sale = Sale.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def sale_params
-      @product = Product.find(params[:product])
-      params.require(:sale, :product).permit(:total, :product_id)  #analizar si hace falta total pq puede ser campo calculado /aplicar update total resumen
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_sale
+    @sale = Sale.find(params[:id])
+  end
 
-    def sale_product_params
-      puts 'b1', params[:product_id]
-      @prod3 = Product.find(params[:product_id])
+  # Only allow a list of trusted parameters through.
+  def sale_params
+    @product = Product.find(params[:product])
+    params.require(:sale, :product).permit(:total, :product_id)  #analizar si hace falta total pq puede ser campo calculado /aplicar update total resumen
+  end
 
-      #params.require(:sale_product).permit(:sale, :product)
-    end
+  def sale_product_params
+    puts "b1", params[:product_id]
+    @prod3 = Product.find(params[:product_id])
+  end
 
-    def set_sale_product
-      @product = Product.find(params[:product_id])
-    end
-
-    # encarar con generate controller y de ahi utilizar el create... o no se, quizas ver bien como llamar al metodo que está en sale por alguna razon no lo encuentra!!
+  def set_sale_product
+    @product = Product.find(params[:product_id])
+  end
 end
