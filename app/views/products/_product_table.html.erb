@@ -20,11 +20,9 @@
                         <%= link_to "Show this product", product %>
                     </p>
                 </td>
-                <td>
-                    <p>
-                        <%= link_to "Add to cart" %> 
-                    </p>
-                </td>
+              <td>
+                  <%= button_to "Add to cart", {:controller => "sales", :action => "add_product_to_sale", :product_id => product.id }, {:method => :post}   %>
+              </td>
             </tr>
           </div> 
       <% end %>

@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   #get "sales/:product", to: "sales#add_product_to_sale"
   #post "sales/:product/add_product_to_sale" => "sales#add_product_to_sale", as: "add_product_to_sale"
   #post "sales/product/:product_id", to: "sales#add_product_to_sale"
-
+  
+  post "sales/product/:product_id", to: "sales#add_product_to_sale"
 
 
 end

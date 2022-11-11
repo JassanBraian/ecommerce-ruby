@@ -18,7 +18,7 @@ class Sale < ApplicationRecord
 
     #@product2 = Product.find(2)   #carga manual forzada, queda pendiente poder cargarlo por parametro
     #SaleProduct.find_or_create_by(sale: self, product: @product2)
-    SaleProduct.find_or_create_by(sale: self, product: @prod3)
+    SaleProduct.find_or_create_by(sale: self, product: @product)
   end
 
   def printmessage

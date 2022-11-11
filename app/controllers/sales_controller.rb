@@ -1,7 +1,7 @@
 class SalesController < ApplicationController
   before_action :set_sale, only: %i[ show edit update destroy ]
 
-  before_action :set_sale_product, only: %i[ add_product_to_cart ]
+  before_action :set_sale_product, only: %i[ add_product_to_sale ]
 
   # GET /sales or /sales.json
   def index
@@ -59,6 +59,14 @@ class SalesController < ApplicationController
     end
   end
 
+  def add_product_to_sale
+
+    #@product2 = Product.find(2)   #carga manual forzada, queda pendiente poder cargarlo por parametro
+    #SaleProduct.find_or_create_by(sale: self, product: @product2)
+    @sale3 = Sale.first
+    SaleProduct.find_or_create_by(sale: @sale3, product: @product)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_sale
@@ -79,7 +87,7 @@ class SalesController < ApplicationController
     end
 
     def set_sale_product
-      @product = Product.find(params[:id])
+      @product = Product.find(params[:product_id])
     end
 
     # encarar con generate controller y de ahi utilizar el create... o no se, quizas ver bien como llamar al metodo que está en sale por alguna razon no lo encuentra!!
