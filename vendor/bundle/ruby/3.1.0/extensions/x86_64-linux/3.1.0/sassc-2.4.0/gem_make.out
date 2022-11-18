@@ -79,13 +79,25 @@ current directory: /home/braian/AAA Desk Folders/Ruby and RoR/ecommerce-rails/ve
 make DESTDIR\= install
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /usr/bin/install -c -m 0755 libsass.so ./.gem.20221116-18219-fez9x4/sassc
 =======
 /usr/bin/install -c -m 0755 libsass.so ./.gem.20221118-8530-7kmprh/sassc
 >>>>>>> 94441e8 (scss error fixed)
 =======
+=======
+>>>>>>> 1439331 (fixed main)
 /usr/bin/install -c -m 0755 libsass.so ./.gem.20221118-8530-7kmprh/sassc
 =======
 /usr/bin/install -c -m 0755 libsass.so ./.gem.20221116-18219-fez9x4/sassc
 >>>>>>> fa5c140 (bootstrap aplied)
+<<<<<<< HEAD
 >>>>>>> 35a3205 (resolved conflicts)
+=======
+=======
+/usr/bin/install -c -m 0755 libsass.so ./.gem.20221116-18219-fez9x4/sassc
+=======
+/usr/bin/install -c -m 0755 libsass.so ./.gem.20221118-8530-7kmprh/sassc
+>>>>>>> 94441e8 (scss error fixed)
+>>>>>>> 1596f89 (resolved conflic in rebase main with dev)
+>>>>>>> 1439331 (fixed main)
