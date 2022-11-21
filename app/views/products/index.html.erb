@@ -1,10 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Products</h1>
-
+<div class="d-flex justify-content-between">
+    <div class="col">
+        <h1>Products</h1>
+    </div>
+    <div class="col d-flex justify-content-end align-items-center">
+        <%= link_to "NEW +", new_product_path %>
+    </div>
+</div>
 
 <%= render "product_table", products: @products %>
 
-<h3>Add new product</h3>
 
-<%= link_to "New product", new_product_path %>

@@ -1,10 +1,11 @@
-<table class="table">
+<table class="table table-dark table-striped table-bordered align-middle">
     <thead>
-      <tr>
+      <tr class="table table-dark">
         <th scope="col">#</th>
         <th scope="col">Title</th>
         <th scope="col">Stock</th>
         <th scope="col">Brand</th>
+        <th class="col text-center">Operations</th>
       </tr>
     </thead>
     <tbody>
@@ -15,14 +16,14 @@
                 <td><%= product.title %></td>
                 <td><%= product.stock %></td>
                 <td><%= product.brand.title %></td>
-                <td>
-                    <p>
-                        <%= link_to "Show this product", product %>
-                    </p>
+                <td class="d-flex justify-content-center">
+                    <%= link_to "Show", product %>
+
+                    <%= button_to "Add to cart", 
+                      { :controller => "sales", :action => "add_product_to_sale", :product_id => product.id }, 
+                      {:method => :post} 
+                    %>
                 </td>
-              <td>
-                  <%= button_to "Add to cart", { :controller => "sales", :action => "add_product_to_sale", :product_id => product.id }, {:method => :post} %>
-              </td>
             </tr>
           </div> 
       <% end %>
