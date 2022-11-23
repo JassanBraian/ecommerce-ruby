@@ -4,7 +4,13 @@
 
 <div id="sales">
   <% @sales.each do |sale| %>
+
     <%= render sale %>
+
+    <% sale.sale_products.each do |sale_product| %>
+      <%= render "sale_product", sale_product: sale_product %>
+    <% end %>
+
     <p>
       <%= link_to "Show this sale", sale %>
     </p>
