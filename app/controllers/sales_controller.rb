@@ -60,8 +60,17 @@ class SalesController < ApplicationController
   end
 
   def add_product_to_sale
-    @sale3 = Sale.first     #Pendiente que este sale venga manual del usuario y sea creado si no existe uno payed false
-    SaleProduct.find_or_create_by(sale: @sale3, product: @product)
+    @saleUnpaid = Sale.where(paid: false).limit(1).first  # verif que sea el ultimo
+    if @saleUnpaid.nil?
+      @saleNew = Sale.new()
+      @saleNew.save
+      SaleProduct.find_or_create_by(sale: @saleNew, product: @product)
+    else
+      SaleProduct.find_or_create_by(sale: @saleUnpaid, product: @product)
+    end
+  end
+
+  def remove_product_from_sale
   end
 
   private
@@ -73,12 +82,10 @@ class SalesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def sale_params
-    @product = Product.find(params[:product])
-    params.require(:sale, :product).permit(:total, :product_id)  #analizar si hace falta total pq puede ser campo calculado /aplicar update total resumen
+    params.permit(:total, :paid, :product_id)
   end
 
   def set_sale_product
     @product = Product.find(params[:product_id])
   end
-  
 end

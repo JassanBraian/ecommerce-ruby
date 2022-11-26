@@ -21,7 +21,12 @@
 
                     <%= button_to "Add to cart", 
                       { :controller => "sales", :action => "add_product_to_sale", :product_id => product.id }, 
-                      {:method => :post} 
+                      { :method => :post} 
+                    %>
+
+                    <%= button_to "Remove from cart", 
+                      { :controller => "sales", :action => "remove_product_from_sale", :product_id => product.id }, 
+                      { :method => :delete} 
                     %>
                 </td>
             </tr>
