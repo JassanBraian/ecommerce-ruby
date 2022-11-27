@@ -1,7 +1,7 @@
 class SalesController < ApplicationController
   before_action :set_sale, only: %i[ show edit update destroy ]
 
-  before_action :set_sale_product, only: %i[ add_product_to_sale ]
+  before_action :set_sale_product, only: %i[ add_product_to_sale, remove_product_from_sale ]
 
   # GET /sales or /sales.json
   def index
@@ -71,6 +71,8 @@ class SalesController < ApplicationController
   end
 
   def remove_product_from_sale
+    @saleUnpaid = Sale.where(paid: false).limit(1).first
+    SaleProduct.where(sale: @saleUnpaid, product: @product).first.destroy
   end
 
   private
