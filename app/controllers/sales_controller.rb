@@ -5,7 +5,7 @@ class SalesController < ApplicationController
 
   # GET /sales or /sales.json
   def index
-    @sales = Sale.all
+    @sales = Sale.where(paid: true)
   end
 
   # GET /sales/1 or /sales/1.json
@@ -73,6 +73,10 @@ class SalesController < ApplicationController
   def remove_product_from_sale
     @saleUnpaid = Sale.where(paid: false).limit(1).first
     SaleProduct.where(sale: @saleUnpaid, product: @product).first.destroy
+  end
+
+  def cart
+    @cart = Sale.where(paid: false).limit(1).first
   end
 
   private

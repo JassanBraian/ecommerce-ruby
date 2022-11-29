@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   resources :sales
   post "sales/product/:product_id", to: "sales#add_product_to_sale"
   delete "sales/product/:product_id", to: "sales#remove_product_from_sale"
+  get "sale-cart", to: "sales#cart"
 
 end
