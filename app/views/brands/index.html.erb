@@ -1,16 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Brands</h1>
-
-<div id="brands">
-  <% @brands.each do |brand| %>
-    <div style="padding:1m 0 1em 0;border:solid 1px">
-      <%= render brand %>
-      <p>
-        <%= link_to "Show this brand", brand %>
-      </p>
+<div class="app">
+    <div class="row d-flex justify-content-between">
+        <div class="col">
+            <h1>Brands</h1>
+        </div>
+        <div class="col d-flex justify-content-end align-items-center">
+            <%= link_to "NEW +", new_brand_path %>
+        </div>
     </div>
-  <% end %>
-</div>
 
-<%= link_to "New brand", new_brand_path %>
+    <%= render "brand_table", brands: @brands %>
+</div>
