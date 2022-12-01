@@ -4,21 +4,20 @@
   <h1>Cart</h1>
 
   <div id="<%= dom_id @cart %>">
-  <div class="card">
-    <div class="card-header">
-      Fecha de compra: <%= Time.now %>
-    <div>
-    <div class="card-body">
-      <h5 class="card-title">Lista de productos selecionados:</h5>
-      <% @cart.sale_products.each do |sale_product| %>
-        <%= render "sale_product", sale_product: sale_product %>
-      <% end %>
-      <p class="card-text text-center text-success">Total: <%= @cart.total %></p>
-    </div>
-    <div class="card-footer">
-      <%= Time.now %>
+    <div class="card">
+      <div class="card-header">
+        Fecha de compra: <%= Time.now %>
+      <div>
+      <div class="card-body">
+        <h5 class="card-title">Lista de productos selecionados:</h5>
+        <% @cart.sale_products.each do |sale_product| %>
+          <%= render "sale_product", sale_product: sale_product %>
+        <% end %>
+        <p class="card-text text-center text-success">Total: <%= @cart.total %></p>
+      </div>
+      <div class="card-footer">
+        <%= Time.now %>
+      </div>
     </div>
   </div>
-</div>
-
 </div>

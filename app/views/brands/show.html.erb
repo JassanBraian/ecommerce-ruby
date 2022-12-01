@@ -1,8 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @brand %>
+<div class="app">
+  <h1>Show brand</h1>
 
-<div>
+  <div class="card">
+    <div class="card-body"> 
+      <%= render @brand %>
+    </div>
+  </div>
+  
   <%= link_to "Edit this brand", edit_brand_path(@brand) %> |
   <%= link_to "Back to brands", brands_path %>
 
