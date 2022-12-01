@@ -1,0 +1,18 @@
+<table class="table table-dark table-striped table-bordered align-middle">
+    <thead>
+        <tr class="table table-dark">
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Brand</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% sale_products.each_with_index do |sale_product, index| %>
+            <tr>
+                <th scope="row"><%= index + 1 %></th>
+                <td><%= sale_product.product.title %></td>
+                <td><%= sale_product.product.brand.title %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

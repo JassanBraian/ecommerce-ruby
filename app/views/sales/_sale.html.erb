@@ -4,10 +4,10 @@
       Fecha de compra: <%= Time.now %>
     <div>
     <div class="card-body">
-      <h5 class="card-title">Lista de productos selecionados:</h5>
-      <% sale.sale_products.each do |sale_product| %>
-        <%= render "sale_product", sale_product: sale_product %>
-      <% end %>
+      <h5 class="card-title">Product list:</h5>
+
+      <%= render "sale_product_table", sale_products: sale.sale_products %>
+
       <p class="card-text text-center text-success">Total: <%= sale.total %></p>
     </div>
     <div class="card-footer">
