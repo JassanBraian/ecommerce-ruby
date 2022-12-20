@@ -79,6 +79,11 @@ class SalesController < ApplicationController
     @cart = Sale.where(paid: false).limit(1).first
   end
 
+  def pay_cart
+    @cart = Sale.where(id: params[:cart_id], paid: false).limit(1).first
+    @cart.update(paid: true)
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
