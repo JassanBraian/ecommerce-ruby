@@ -3,25 +3,37 @@
 <div class="app">
   <h1>Cart</h1>
 
-  <div id="<%= dom_id @cart %>">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Product list:</h5>
+  <% if @cart && @cart.sale_products.count > 0 %>
+    <div id="<%= dom_id @cart %>">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Product list:</h5>
 
-        <%= render "sale_prod_cart_table", sale_products: @cart.sale_products %>
+          <%= render "sale_prod_cart_table", sale_products: @cart.sale_products %>
 
-        <p class="card-text text-center text-success">
-          <strong>Total: <%= @cart.total %></strong>
-        </p>
+          <p class="card-text text-center text-success">
+            <strong>Total: $<%= @cart.total %></strong>
+          </p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <br>
+    <br>
 
-  <%= button_to "Pay Cart", 
-    { :controller => "sales", :action => "pay_cart", :cart_id => @cart.id }, 
-    { :method => :put} 
-  %>
+    <%= button_to "Pay Cart", 
+      { :controller => "sales", :action => "pay_cart", :cart_id => @cart.id }, 
+      { :method => :put} 
+    %>
+
+  <% else %>
+    <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Product list:</h5>
+      Cart without product added
+      <p class="card-text text-center text-success">
+        <strong>Total: $0.0</strong>
+      </p>
+    </div>
+  <% end %>
 
 </div>
