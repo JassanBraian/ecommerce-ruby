@@ -16,9 +16,50 @@
 
 @import "bootstrap";
 
+@import "font-awesome";
+
 body {
   background-color: #282c34;
   background-size: 20px 20px;
   font-family: 'Verdana';
   // color: white
+}
+
+.prod-new {
+  color: black;
+  border-style: solid 1px;
+  border-radius: 10%;
+  padding: 0 10px 0 10px;
+  border-color: black;
+  background-color: dodgerblue;
+}
+
+.prod-new :hover {
+  color: whitesmoke;
+}
+
+.prod-table-func :hover {
+  color: whitesmoke;
+}
+
+.prod-table-show {
+  color: dodgerblue;
+  margin-right: 10px;
+}
+
+.prod-table-edit {
+  color: rgb(221, 221, 0);
+  margin-right: 10px;
+}
+
+.prod-table-delete {
+  color: red;
+  margin-right: 10px;
+}
+
+.prod-btn {
+  color: green;
+  margin-right: 10px;
+  background-color: transparent;
+  border: none;
 }
