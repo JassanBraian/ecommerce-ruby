@@ -6,8 +6,11 @@
             <h1>Products</h1>
         </div>
         <div class="col d-flex justify-content-end align-items-center">
-            <%= link_to '<i class="fa-solid fa-plus fa-2x"></i>'.html_safe, 
-                new_product_path, :class => "btn-new" %>
+            
+            <%= link_to '<div class="btn-new"><i class="fa-solid fa-plus fa-3x"></i></div>'
+                .html_safe, new_product_path
+            %>
+            
         </div>
     </div>
 
