@@ -16,26 +16,26 @@
                 <td><%= product.title %></td>
                 <td><%= product.stock %></td>
                 <td><%= product.brand.title %></td>
-                <td class="d-flex justify-content-center prod-table-func">
+                <td class="d-flex justify-content-center btn-table-func">
 
-                  <%= link_to '<i class="fa-solid fa-eye fa-2x"></i>'.html_safe, product, :class => "prod-table-show" %>  
+                  <%= link_to '<i class="fa-solid fa-eye fa-2x"></i>'.html_safe, product, :class => "btn-table-show" %>  
 
                   <%= link_to '<i class="fa-solid fa-pen fa-2x"></i>'.html_safe, 
-                    edit_product_path(product), method: :edit, :class => "prod-table-edit" 
+                    edit_product_path(product), method: :edit, :class => "btn-table-edit" 
                   %>
 
                   <%= link_to '<i class="fa-solid fa-trash fa-2x"></i>'.html_safe, 
-                    product, data: { turbo_method: :delete }, :class => "prod-table-delete" 
+                    product, data: { turbo_method: :delete }, :class => "btn-table-delete" 
                   %>
 
                   <%= button_to '<i class="fa-sharp fa-solid fa-cart-plus fa-2x"></i>'.html_safe, 
                     { :controller => "sales", :action => "add_product_to_sale", :product_id => product.id }, 
-                    { :method => :post, :class => "prod-btn"} 
+                    { :method => :post, :class => "btn-cart"} 
                   %>
 
                   <%= button_to '<i class="fa-sharp fa-solid fa-cart-shopping fa-2x"></i>'.html_safe, 
                     { :controller => "sales", :action => "remove_product_from_sale", :product_id => product.id }, 
-                    { :method => :delete, :class => "prod-btn" } 
+                    { :method => :delete, :class => "btn-cart" } 
                   %>
 
                 </td>
