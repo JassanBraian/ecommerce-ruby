@@ -41,6 +41,14 @@ h2 {
     color: whitesmoke;
 }
 
-.navbar {
+.navigation {
   background-color: var(--bs-teal);
+}
+
+.btn-back {
+  color: #282c34;
+}
+
+.btn-back :hover {
+  color: whitesmoke;
 }
